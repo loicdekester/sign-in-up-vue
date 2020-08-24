@@ -1,9 +1,9 @@
 <template>
-  <div class="auth-page">
-    <div class="container page">
+  <div class="login-page">
+    <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign in</h1>
+          <h1 class="text-xs-center">Login</h1>
           <p class="text-xs-center">
             <router-link :to="{ name: 'register' }">
               Need an account?
@@ -19,6 +19,7 @@
                 type="text"
                 v-model="email"
                 placeholder="Email"
+                autocomplete="username"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -27,6 +28,7 @@
                 type="password"
                 v-model="password"
                 placeholder="Password"
+                autocomplete="current-password"
               />
             </fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right">
@@ -65,3 +67,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.login-page {
+  padding: 3rem 0;
+}
+</style>

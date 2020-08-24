@@ -54,12 +54,13 @@ const actions = {
   [CHECK_AUTH](context) {
     if (JwtService.getToken()) {
       ApiService.setHeader();
-      ApiService.get("user")
+      ApiService.get("users")
         .then(({ data }) => {
           context.commit(SET_AUTH, data.user);
         })
-        .catch(({ response }) => {
-          context.commit(SET_ERROR, response.data.errors);
+        .catch((response) => {
+          context.commit(SET_ERROR, response);
+          context.commit(PURGE_AUTH);
         });
     } else {
       context.commit(PURGE_AUTH);

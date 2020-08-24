@@ -1,55 +1,27 @@
 <template>
-  <nav class="navbar navbar-light">
-    <div class="container">
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
-        Home
-      </router-link>
-      <ul v-if="!isAuthenticated" class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'home' }"
-          >
-            Home
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'login' }"
-          >
-            <i class="ion-compose"></i>Sign in
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'register' }"
-          >
-            <i class="ion-compose"></i>Sign up
-          </router-link>
-        </li>
-      </ul>
-      <ul v-else class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'home' }"
-          >
-            Home
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar-brand to="/">Logo</b-navbar-brand>
+
+    <b-navbar-toggle target="navbar-toggle-collapse">
+      <template v-slot:default="{ expanded }">
+        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+        <b-icon v-else icon="chevron-bar-down"></b-icon>
+      </template>
+    </b-navbar-toggle>
+
+    <b-collapse id="navbar-toggle-collapse" is-nav>
+      <b-navbar-nav v-if="!isAuthenticated" class="ml-auto">
+        <b-nav-item to="/">Home</b-nav-item>
+        <b-nav-item to="/register">Register</b-nav-item>
+        <b-nav-item to="/login">Login</b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav v-else class="ml-auto">
+        <b-nav-item to="/">Home</b-nav-item>
+        <b-nav-item to="/">Logout</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+  
 </template>
 
 <script>

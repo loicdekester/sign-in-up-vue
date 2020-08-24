@@ -1,9 +1,9 @@
 <template>
-  <div class="auth-page">
-    <div class="container page">
+  <div class="register-page">
+    <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign up</h1>
+          <h1 class="text-xs-center">Register</h1>
           <p class="text-xs-center">
             <router-link :to="{ name: 'login' }">
               Have an account?
@@ -88,3 +88,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.register-page {
+  padding: 3rem 0;
+}
+</style>
