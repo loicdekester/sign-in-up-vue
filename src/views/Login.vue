@@ -36,6 +36,7 @@
             </button>
           </form>
           <a href="http://localhost:3000/api/auth/google">Sign in with Google</a>
+          <a href="http://localhost:3000/api/auth/facebook">Login with Facebook</a>
         </div>
       </div>
     </div>

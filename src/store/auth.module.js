@@ -65,7 +65,7 @@ const actions = {
   [CHECK_AUTH](context) {
     if (!state.isAuthenticated) {
       ApiService.get("auth/ping")
-        .then((data) => {
+        .then(() => {
           context.commit(SET_AUTH);
         })
         .catch((response) => {
