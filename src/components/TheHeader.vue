@@ -17,7 +17,7 @@
       </b-navbar-nav>
       <b-navbar-nav v-else class="ml-auto">
         <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item to="/">Logout</b-nav-item>
+        <b-nav-item @click="logout">Logout</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -26,11 +26,19 @@
 
 <script>
 import { mapGetters } from "vuex";
+import {LOGOUT} from "@/store/actions.type";
 
 export default {
   name: "TheHeader",
   computed: {
-    ...mapGetters(["currentUser", "isAuthenticated"])
+    ...mapGetters(["isAuthenticated", "user"])
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch(LOGOUT).then(() => {
+        this.$router.push({name:"login"});
+      });
+    }
   }
 };
 </script>

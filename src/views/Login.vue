@@ -35,6 +35,7 @@
               Sign in
             </button>
           </form>
+          <a href="http://localhost:3000/api/auth/google">Sign in with Google</a>
         </div>
       </div>
     </div>
@@ -57,8 +58,8 @@ export default {
     onSubmit(email, password) {
       this.$store
         .dispatch(LOGIN, { email, password })
-        .then(() => this.$router.push({ name: "home" }));
-    }
+        .then(() => this.$router.push({ name: "profile" }));
+    },
   },
   computed: {
     ...mapState({

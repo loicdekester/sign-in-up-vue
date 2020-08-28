@@ -1,3 +1,4 @@
+//import ApiService from "@/common/service/api";
 import {
   FETCH_START,
   FETCH_END,
@@ -10,7 +11,7 @@ const state = {
 const getters = {
   isLoading(state) {
     return state.isLoading;
-  }
+  },
 };
 
 const actions = {
@@ -24,7 +25,7 @@ const mutations = {
   },
   [FETCH_END](state) {
     state.isLoading = false;
-  }
+  },
 };
 
 export default {
