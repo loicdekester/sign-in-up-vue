@@ -4,7 +4,13 @@
       <div class="row justify-content-left" >
         <div class="text-left col-md-4 col-auto" >
           <h5 class="bd-text-purple-bright mb-1" >Index</h5> 
-          <div>
+          <div v-if="isAuthenticated">
+            <b-nav vertical>
+              <b-nav-item to="/">Home</b-nav-item>
+              <b-nav-item to="/profile">Profile</b-nav-item>
+            </b-nav>
+          </div>
+          <div v-else>
             <b-nav vertical>
               <b-nav-item to="/">Home</b-nav-item>
               <b-nav-item to="/register">Register</b-nav-item>
@@ -22,8 +28,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "TheFooter"
+  name: "TheFooter",
+  computed: {
+    ...mapGetters(["isAuthenticated"])
+  },
 };
 </script>
 
