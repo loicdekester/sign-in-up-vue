@@ -39,19 +39,7 @@
               Login
             </button>
           </form>
-          <div class="other-login">
-            <div class="circle-container">
-              <p class="circled-text">Or</p>
-            </div>
-            <div class="link-container">
-              <div class="google">
-                <a class="social-link" href="http://localhost:3000/api/auth/google"><i class="google-logo"></i>Login with Google</a>
-              </div>
-              <div class="fb">
-                <a class="social-link" href="http://localhost:3000/api/auth/facebook"><i class="fb-logo"></i>Login with Facebook</a>
-              </div>
-            </div>
-          </div>
+          <SocialAuth :text="`Login with`"></SocialAuth>
         </div>
       </div>
     </div>
@@ -61,9 +49,13 @@
 <script>
 import { mapState } from "vuex";
 import { LOGIN } from "@/store/actions.type";
+import SocialAuth from "@/components/SocialAuth"
 
 export default {
   name: "LoginVue",
+  components: {
+    SocialAuth,
+  },
   data() {
     return {
       email: null,
@@ -89,79 +81,5 @@ export default {
 .login-page {
   padding: 3rem 0;
   text-align: center;
-}
-.fb {
-  background-color: #3b5998;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  margin: 5px 0;
-  opacity: 0.85;
-  display: inline-block;
-}
-
-.fb-logo {
-  background-image: url(../../public/icons/facebook-brands.svg);
-  background-repeat: no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  filter: invert(100%);
-  margin: 0px 5px;
-}
-
-.google {
-  background-color: #dd4b39;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  margin: 5px 0;
-  opacity: 0.85;
-  display: inline-block;
-}
-
-.google-logo {
-  background-image: url(../../public/icons/google-brands.svg);
-  background-repeat: no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  filter: invert(100%);
-  margin-right: 10px;
-}
-
-.social-link {
-  text-decoration: none;
-  color: white;
-  font-size: large;
-  font-weight: 500;
-  vertical-align: middle;
-}
-
-.link-container {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-}
-
-.circled-text {
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  padding: 7px 1px;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 0px;
-}
-
-.circle-container {
-  margin: auto;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-.other-login {
-  display: inline-block;
 }
 </style>
