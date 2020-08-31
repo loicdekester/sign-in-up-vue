@@ -1,10 +1,28 @@
 <template>
   <div class="profile-page">
     <div class="container">
-      <h1 class="logo-font">Profile</h1>
-      <p>This is the Profile page</p>
-      <p>This is the Information we have on you:</p>
-      <p>{{user.firstName}} {{user.lastName}}</p>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+      <h1 class="title">Profile</h1>
+      <b-card title="This is the Profile page"
+      img-src="../../public/stock-picture.jpg"
+      img-alt="Image"
+      img-top
+      tag="article"
+      style="max-width: 20rem;"
+      class="mb-2">
+        <b-card-text>
+          This is the Information we have on you:
+        </b-card-text>
+        <b-card-text>
+          Name: {{user.firstName}} {{user.lastName}}
+        </b-card-text>
+        <b-card-text>
+          email: {{user.email}}
+        </b-card-text>
+      </b-card>
+      </div>
+      </div>
     </div>
   </div>
 </template>
@@ -29,5 +47,9 @@ export default {
 <style scoped>
 .profile-page {
   padding: 3rem 0;
+}
+
+.title {
+  text-align: center;
 }
 </style>
