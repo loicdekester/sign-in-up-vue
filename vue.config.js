@@ -1,5 +1,5 @@
 /* eslint-disable */
-//config to resolve img path in bootsrapvue components
+//config to resolve img path in bootsrapvue components https://bootstrap-vue.org/docs/reference/images
 module.exports = {
   chainWebpack: config => {
     config.module
