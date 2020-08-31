@@ -75,15 +75,17 @@ const actions = {
     }
   },
   [FETCH_USER](context) {
-    return ApiService.get("users")
-      .then(({ data }) => {
-        context.commit(SET_USER, data.user);
-        return data;
-      })
-      .catch(() => {
-        // #todo SET_ERROR cannot work in multiple states
-        // context.commit(SET_ERROR, response.data.errors)
-      });
+    return new Promise((resolve, reject) => {
+      return ApiService.get("users")
+        .then(({ data }) => {
+          context.commit(SET_USER, data.user);
+          return data;
+        })
+        .catch(({ response }) => {
+          context.commit(SET_ERROR, response.data.errors);
+          reject(response);
+        });
+    });
   },
 };
 
