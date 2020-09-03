@@ -117,10 +117,10 @@ export default {
       if (this.formCheck()) {
         this.$store
         .dispatch(REGISTER, {
-            email: this.email,
-            password: this.password1,
-            firstName: this.firstName,
-            lastName: this.lastName
+            email: this.email.trim().toLowerCase(),
+            password: this.password1.trim(),
+            firstName: this.firstName.trim(),
+            lastName: this.lastName.trim()
         })
         .then(() => this.$router.push({ name: "home" }));
       }   

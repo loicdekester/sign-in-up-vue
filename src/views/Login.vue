@@ -65,7 +65,10 @@ export default {
   methods: {
     onSubmit(email, password) {
       this.$store
-        .dispatch(LOGIN, { email, password })
+        .dispatch(LOGIN, {
+        email: email.trim().toLowerCase(),
+        password: password.trim(),
+      })
         .then(() => this.$router.push({ name: "profile" }));
     },
   },
