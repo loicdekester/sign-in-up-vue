@@ -10,10 +10,6 @@
 <script>
 export default {
   name: "HomeVue",
-  components: {
-  },
-  mounted() {
-  },
 };
 </script>
 <style scoped>

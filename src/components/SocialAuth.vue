@@ -5,12 +5,12 @@
     </div>
     <div class="row justify-content-center ">
       <div class="col-md-6 google">
-        <a class="social-link" href="http://localhost:3000/api/auth/google"><i class="google-logo"></i>{{text}} Google</a>
+        <a id="googleLink" class="social-link" href="http://localhost:3000/api/auth/google"><i class="google-logo"></i>{{text}} Google</a>
       </div>
     </div>
     <div class="row justify-content-center ">
       <div class="col-md-6 fb">
-        <a class=" social-link" href="http://localhost:3000/api/auth/facebook"><i class="fb-logo"></i>{{text}} Facebook</a>
+        <a id="facebookLink" class=" social-link" href="http://localhost:3000/api/auth/facebook"><i class="fb-logo"></i>{{text}} Facebook</a>
       </div>
     </div>
   </div>
