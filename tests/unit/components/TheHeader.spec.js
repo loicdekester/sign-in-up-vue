@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import TheHeader from '../../../src/components/TheHeader';
-import { BootstrapVue, BootstrapVueIcons, BNavbarNav, BNavItem } from "bootstrap-vue"
+import { BootstrapVue, BootstrapVueIcons, BNavbarNav, BNavItem, BIconJustifyLeft } from "bootstrap-vue"
 
 const localVue = createLocalVue();
 
@@ -11,15 +11,19 @@ localVue.use(BootstrapVueIcons);
 
 describe('TheHeader.vue', () => {
   let getters;
+  let actions
   let store;
   describe('When logged', () => {
     beforeEach(() => {
       getters = {
         isAuthenticated: () => true,
-      }
-
+      },
+        actions = {
+          logout: jest.fn(),
+        }
       store = new Vuex.Store({
-        getters
+        getters,
+        actions
       });
     })
 
@@ -32,6 +36,13 @@ describe('TheHeader.vue', () => {
       expect(navItems.at(0).text()).toBe("Home");
       expect(navItems.at(1).text()).toBe("Profile");
       expect(navItems.at(2).text()).toBe("Logout");
+    });
+
+    it('calls store action "LOGOUT" when Logout link is cliked', () => {
+      const wrapper = mount(TheHeader, { store, localVue });
+      const navItems = wrapper.findAllComponents(BNavItem);
+      navItems.at(2).trigger('click');
+      expect(actions.logout.toHaveBeenCalled);
     });
   });
   describe('When logged out', () => {

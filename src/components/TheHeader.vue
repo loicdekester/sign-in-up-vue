@@ -32,7 +32,7 @@ import {LOGOUT} from "@/store/actions.type";
 export default {
   name: "TheHeader",
   computed: {
-    ...mapGetters(["isAuthenticated", "user"])
+    ...mapGetters(["isAuthenticated"])
   },
   methods: {
     logout() {
