@@ -17,6 +17,7 @@
       </b-navbar-nav>
       <b-navbar-nav v-else class="ml-auto">
         <b-nav-item to="/">Home</b-nav-item>
+        <b-nav-item to="/profile">Profile</b-nav-item>
         <b-nav-item @click="logout">Logout</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
