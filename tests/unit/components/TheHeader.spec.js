@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import TheHeader from '../../../src/components/TheHeader';
-import { BootstrapVue, BootstrapVueIcons, BNavbarNav, BNavItem, BIconJustifyLeft } from "bootstrap-vue"
+import { BootstrapVue, BootstrapVueIcons, BNavbarNav, BNavItem } from "bootstrap-vue"
 
 const localVue = createLocalVue();
 
